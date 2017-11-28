@@ -2,7 +2,6 @@ package mmonly;
 
 import download.DownLoadUtils;
 import huihui.ImageItem;
-import huihui.MMImageBean;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -19,7 +18,7 @@ import java.util.List;
  */
 public class MMOnlyImageTest {
 
-    private static String url = "http://www.mmonly.cc/mmtp/jpmn/96607.html";
+    private static String url = "http://www.mmonly.cc/mmtp/qcmn/63973.html";
 
     private static String RAGEX_IMAGE = ".html";
 
@@ -29,18 +28,18 @@ public class MMOnlyImageTest {
     public static void main(String[] args) {
 
 
-        try {
+        /*try {
             List<MMImageBean> imagesFromTypes = MMOnlyImageApi.getImagesFromType(1, MMOnlyImageApi.MM_TYPE[2]);
 
             System.out.println(imagesFromTypes.toString());
 
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
 
 
 
-//getDownLoadImage();
+getDownLoadImage();
 
 
 
@@ -75,7 +74,7 @@ public class MMOnlyImageTest {
                 images.add(data.getSrc());
             }
 
-            DownLoadUtils.downLoadImage(images,file.getAbsolutePath());
+            DownLoadUtils.downLoadImageReferrer(images,file.getAbsolutePath(),"http://www.mmonly.cc");
 
         } catch (IOException e) {
             e.printStackTrace();

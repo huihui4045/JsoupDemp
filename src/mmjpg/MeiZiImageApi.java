@@ -1,12 +1,16 @@
 package mmjpg;
 
 
+import download.DownLoadUtils;
+import huihui.ImageItem;
 import huihui.MMImageBean;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import utils.TimeUtil;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -102,7 +106,7 @@ public class MeiZiImageApi {
 
 
 
-    private static List<MMImageBean> getImages(Document document) throws IOException {
+    public static List<MMImageBean> getImages(Document document) throws IOException {
         Elements mainElements = document.getElementsByClass("pic");
         Element mainElement = mainElements.get(0);
         Element ulElement = mainElement.select("ul").get(0);
@@ -134,5 +138,100 @@ public class MeiZiImageApi {
             mmImageBeans.add(mmImageBean);
         }
         return mmImageBeans;
+    }
+
+
+    public static void getDownLoadImages(String url){
+
+        try {
+            Document mItemDocument = Jsoup.connect(url).get();
+
+           // System.out.println("document = [" + mItemDocument.toString() + "]");
+
+
+
+            Element page = mItemDocument.getElementById("page");
+            Elements aPageElements = page.select("a");
+            Element element = aPageElements.get(aPageElements.size()-2);
+            int num = Integer.valueOf(element.text());
+
+            Element content = mItemDocument.getElementById("content");
+
+            Elements aElements = content.select("a");
+
+            Elements img = aElements.get(0).getElementsByTag("img");
+
+            String imageUrl= img.attr("src");
+            String title=img.attr("alt");
+
+
+
+            List<ImageItem> imageItems=null;
+            if (num<=18){
+
+                imageItems=new ArrayList<>(num);
+
+                for (int i = 1; i <= num; i++) {
+                    String newstr = String.format("/%d.jpg",i);
+                    String s=  imageUrl.replace("1.jpg",newstr);
+                    ImageItem imageItem=new ImageItem(s,title);
+
+                    imageItems.add(imageItem);
+                }
+
+            }else {
+
+
+                imageItems=new ArrayList<>(18);
+
+                for (int i = 1; i <= 18; i++) {
+                    String newstr = String.format("/%d.jpg",i);
+                    String s=  imageUrl.replace("1.jpg",newstr);
+                    ImageItem imageItem=new ImageItem(s,title);
+
+                    imageItems.add(imageItem);
+                }
+
+            }
+
+            //http://img.mmjpg.com/2017/1174/1.jpg
+
+            //http://img.mmjpg.com/2017/1174/1/1.jpg
+            //http://img.mmjpg.com/2017/1174/2.jpg
+
+
+            File file=new File(String.format("C:\\Users\\gavin\\Desktop\\晨读\\今日头条\\%s\\%s",
+                    TimeUtil.getTimeShort(),imageItems.get(0).getTitle()));
+
+
+            if (!file.exists()){
+
+                file.mkdirs();
+            }
+
+
+            List<String> images=new ArrayList<>(imageItems.size());
+
+            for (ImageItem data : imageItems) {
+
+                images.add(data.getSrc());
+            }
+
+
+            //System.out.println("imageItems = [" + imageItems.toString() + "]");
+
+            DownLoadUtils.downLoadImageReferrer(images,file.getAbsolutePath(),"http://www.mmjpg.com");
+
+
+
+
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+
+            System.out.println("错误信息 = [" + e.toString() + "]");
+        }
+
     }
 }
