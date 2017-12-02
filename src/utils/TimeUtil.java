@@ -9,7 +9,7 @@ import java.util.Date;
 public class TimeUtil {
 
     public static String getTimeShort() {
-        SimpleDateFormat formatter = new SimpleDateFormat("MMddHHmm");
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd");
         Date currentTime = new Date();
         String dateString = formatter.format(currentTime);
         return dateString;

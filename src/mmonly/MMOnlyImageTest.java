@@ -19,7 +19,7 @@ import java.util.List;
  */
 public class MMOnlyImageTest {
 
-    private static String url = "http://www.mmonly.cc/mmtp/jpmn/96607.html";
+    private static String url = "http://www.mmonly.cc/mmtp/swmn/210530.html";
 
     private static String RAGEX_IMAGE = ".html";
 
@@ -29,18 +29,18 @@ public class MMOnlyImageTest {
     public static void main(String[] args) {
 
 
-        try {
+        /*try {
             List<MMImageBean> imagesFromTypes = MMOnlyImageApi.getImagesFromType(1, MMOnlyImageApi.MM_TYPE[2]);
 
             System.out.println(imagesFromTypes.toString());
 
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
 
 
 
-//getDownLoadImage();
+getDownLoadImage();
 
 
 
@@ -59,7 +59,7 @@ public class MMOnlyImageTest {
 
 
 
-            File file=new File(String.format("C:\\Users\\gavin\\Desktop\\晨读\\今日头条\\%s\\%s",
+            File file=new File(String.format("C:\\Users\\molu_\\Desktop\\简书\\今日头条\\%s\\%s",
                     TimeUtil.getTimeShort(),datas.get(0).getTitle()));
 
 
@@ -75,7 +75,7 @@ public class MMOnlyImageTest {
                 images.add(data.getSrc());
             }
 
-            DownLoadUtils.downLoadImage(images,file.getAbsolutePath());
+            DownLoadUtils.downLoadImageReferrer(images,file.getAbsolutePath(),"http://www.mmonly.cc");
 
         } catch (IOException e) {
             e.printStackTrace();
