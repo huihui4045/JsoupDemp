@@ -95,7 +95,19 @@ public class MeiZiTest {
     }
 
 
+    private static String URL="http://www.mmjpg.com/mm/289";
+
+
+
+
+
     public static void main(String[] args) throws IOException, InterruptedException {
+
+
+        MeiZiImageApi.getDownLoadImages(URL);
+
+
+
 
 
         //MeiZiImageApi.getHome();
@@ -103,7 +115,7 @@ public class MeiZiTest {
      //   getData(MeiZiImageApi.MZ_IMAGE_TYPE[0]);
 
 
-        for (String s : MeiZiImageApi.MZ_IMAGE_TYPE) {
+       /* for (String s : MeiZiImageApi.MZ_IMAGE_TYPE) {
 
             page=1;
 
@@ -116,7 +128,7 @@ public class MeiZiTest {
 
 
 
-        }
+        }*/
 
 
 

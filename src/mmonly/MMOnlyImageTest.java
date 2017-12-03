@@ -19,7 +19,8 @@ import java.util.List;
  */
 public class MMOnlyImageTest {
 
-    private static String url = "http://www.mmonly.cc/mmtp/swmn/210530.html";
+
+    private static String url = MMOnlyData.DATA[MMOnlyData.DATA.length - 1];
 
     private static String RAGEX_IMAGE = ".html";
 
@@ -39,43 +40,52 @@ public class MMOnlyImageTest {
         }*/
 
 
-
-getDownLoadImage();
-
-
+        getDownLoadImage();
 
 
         //System.out.println(document.body());
     }
 
-    public static void getDownLoadImage(){
+    public static void getDownLoadImage() {
 
-          Document document = null;
+
+        for (int i = 0; i < MMOnlyData.DATA.length - 1; i++) {
+
+            if (MMOnlyData.DATA[i].equals(url)) {
+
+                System.out.println("数据已经重复");
+
+                return;
+            }
+
+
+        }
+
+
+        Document document = null;
         try {
             document = Jsoup.connect(url).get();
 
-          List<ImageItem>  datas= getImage(document);
+            List<ImageItem> datas = getImage(document);
 
 
+            File file = new File(String.format("C:\\Users\\gavin\\Desktop\\晨读\\今日头条\\%s\\%s",
+                    TimeUtil.getTimeShort(), datas.get(0).getTitle()));
 
 
-            File file=new File(String.format("C:\\Users\\molu_\\Desktop\\简书\\今日头条\\%s\\%s",
-                    TimeUtil.getTimeShort(),datas.get(0).getTitle()));
-
-
-            if (!file.exists()){
+            if (!file.exists()) {
 
                 file.mkdirs();
             }
 
-            List<String> images=new ArrayList<>(datas.size());
+            List<String> images = new ArrayList<>(datas.size());
 
             for (ImageItem data : datas) {
 
                 images.add(data.getSrc());
             }
 
-            DownLoadUtils.downLoadImageReferrer(images,file.getAbsolutePath(),"http://www.mmonly.cc");
+            DownLoadUtils.downLoadImageReferrer(images, file.getAbsolutePath(), "http://www.mmonly.cc");
 
         } catch (IOException e) {
             e.printStackTrace();
