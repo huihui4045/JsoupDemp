@@ -77,6 +77,12 @@ public class MMOnlyImageTest {
                 file.mkdirs();
             }
 
+
+            if (datas.size()>=15){
+
+                datas=datas.subList(0,15);
+            }
+
             List<String> images = new ArrayList<>(datas.size());
 
             for (ImageItem data : datas) {
