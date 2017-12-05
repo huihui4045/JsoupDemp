@@ -2,6 +2,7 @@ package mmonly;
 
 import download.DownLoadUtils;
 import huihui.ImageItem;
+import huihui.MMImageBean;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -67,8 +68,10 @@ public class MMOnlyImageTest {
 
             List<ImageItem> datas = getImage(document);
 
+            //C:\Users\molu_\Desktop\简书\今日头条
 
-            File file = new File(String.format("C:\\Users\\gavin\\Desktop\\晨读\\今日头条\\%s\\%s",
+
+            File file = new File(String.format("C:\\Users\\molu_\\Desktop\\简书\\今日头条\\%s\\%s",
                     TimeUtil.getTimeShort(), datas.get(0).getTitle()));
 
 
@@ -101,28 +104,30 @@ public class MMOnlyImageTest {
     }
 
 
+
+
     public static List<ImageItem> getImage(Document document) throws IOException {
 
         Elements divElements = document.select("div[class=pages]");
         Elements liElements = divElements.get(0).getElementsByTag("li");
         Element element = liElements.get(0);
         String page = element.text();
-        String contentpage = page.substring(1, page.length() - 2);
-        int mPage = Integer.valueOf(contentpage).intValue();
+        String contentpage=page.substring(1,page.length()-2);
+        int  mPage = Integer.valueOf(contentpage).intValue();
 
-        String requsetUrl = url;
+        String  requsetUrl=url;
 
-        List<ImageItem> imageItems = new ArrayList<>(mPage);
+        List<ImageItem> imageItems=new ArrayList<>(mPage);
         for (int i = 1; i <= mPage; i++) {
 
-            if (i > 1) {
+            if (i>1){
 
-                String newstr = String.format("_%d.html", i);
-                requsetUrl = url.replace(RAGEX_IMAGE, newstr);
-                imageItems.add(getImageItem(requsetUrl));
-            } else {
+                String newstr=String.format("_%d.html",i);
+                requsetUrl= url.replace(RAGEX_IMAGE,newstr);
+                imageItems.add( getImageItem(requsetUrl));
+            }else {
 
-                imageItems.add(getImageItem(requsetUrl));
+                imageItems.add( getImageItem(requsetUrl));
             }
 
         }
@@ -134,6 +139,8 @@ public class MMOnlyImageTest {
     private static ImageItem getImageItem(String url) throws IOException {
 
 
+
+
         Document document = Jsoup.connect(url).get();
 
 
@@ -142,15 +149,16 @@ public class MMOnlyImageTest {
         Element imgElement = divElements.get(0).getElementsByTag("img").get(0);
 
 
-        String imageUrl = imgElement.attr("src");
+        String imageUrl= imgElement.attr("src");
 
-        String title = imgElement.attr("alt");
+        String title=imgElement.attr("alt");
 
 
-        ImageItem imageItem = new ImageItem(imageUrl, title);
+        ImageItem imageItem=new ImageItem(imageUrl,title);
 
         return imageItem;
     }
+
 
 
 }
