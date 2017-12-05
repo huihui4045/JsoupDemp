@@ -2,7 +2,6 @@ package mmonly;
 
 import download.DownLoadUtils;
 import huihui.ImageItem;
-import huihui.MMImageBean;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -68,10 +67,13 @@ public class MMOnlyImageTest {
 
             List<ImageItem> datas = getImage(document);
 
-            //C:\Users\molu_\Desktop\简书\今日头条
+            //C:\Users\molu_\Desktop\简书\今日头条    C:\Users\gavin\Desktop\晨读\今日头条
+
+            //String url="C:\\Users\\molu_\\Desktop\\简书\\今日头条\\%s\\%s";
+            String url="C:\\Users\\gavin\\Desktop\\晨读\\今日头条\\%s\\%s";
 
 
-            File file = new File(String.format("C:\\Users\\molu_\\Desktop\\简书\\今日头条\\%s\\%s",
+            File file = new File(String.format(url,
                     TimeUtil.getTimeShort(), datas.get(0).getTitle()));
 
 
