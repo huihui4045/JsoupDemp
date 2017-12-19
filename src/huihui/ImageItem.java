@@ -9,6 +9,16 @@ public class ImageItem {
 
     private String  title;
 
+    private String nextPage;
+
+    public String getNextPage() {
+        return nextPage;
+    }
+
+    public void setNextPage(String nextPage) {
+        this.nextPage = nextPage;
+    }
+
     public ImageItem(String src, String title) {
         this.src = src;
         this.title = title;
@@ -35,6 +45,7 @@ public class ImageItem {
         return "ImageItem{" +
                 "src='" + src + '\'' +
                 ", title='" + title + '\'' +
-                '}';
+                ", nextPage='" + nextPage + '\'' +
+                '}'+"\n";
     }
 }
