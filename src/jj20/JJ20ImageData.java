@@ -12,5 +12,8 @@ public class JJ20ImageData {
             "http://www.jj20.com/bz/nxxz/nxmt/10506.html","http://www.jj20.com/bz/nxxz/nxmt/10550.html","http://www.jj20.com/bz/nxxz/nxmt/10494.html",
             "http://www.jj20.com/bz/nxxz/nxmt/10488.html","http://www.jj20.com/bz/nxxz/nxmt/10460.html"
 
+            "http://www.jj20.com/bz/nxxz/nxmt/7648.html","http://www.jj20.com/bz/nxxz/nxmt/10494.html","http://www.jj20.com/bz/nxxz/shxz/10473.html",
+            "http://www.jj20.com/bz/nxxz/shxz/10554.html"
+
     };
 }
