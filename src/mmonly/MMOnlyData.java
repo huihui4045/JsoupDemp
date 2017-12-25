@@ -28,6 +28,7 @@ public class MMOnlyData {
             "http://www.mmonly.cc/mmtp/nymn/66962.html","http://www.mmonly.cc/mmtp/bjnmn/216028.html","http://www.mmonly.cc/mmtp/bjnmn/61627.html",
             "http://www.mmonly.cc/mmtp/bjnmn/124.html","http://www.mmonly.cc/mmtp/bjnmn/61637.html","http://www.mmonly.cc/mmtp/bjnmn/49204.html",
             "http://www.mmonly.cc/mmtp/bjnmn/41865.html","http://www.mmonly.cc/mmtp/bjnmn/139940.html","http://www.mmonly.cc/mmtp/bjnmn/1867.html",
-            "http://www.mmonly.cc/mmtp/xgmn/126835.html"
+            "http://www.mmonly.cc/mmtp/xgmn/126835.html","http://www.mmonly.cc/mmtp/qcmn/216346.html","http://www.mmonly.cc/mmtp/nymn/216263.html",
+            "http://www.mmonly.cc/mmtp/swmn/216340.html","http://www.mmonly.cc/mmtp/swmn/1068.html","http://www.mmonly.cc/mmtp/bjnmn/100045.html"
     };
 }
