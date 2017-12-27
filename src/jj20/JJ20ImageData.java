@@ -13,7 +13,9 @@ public class JJ20ImageData {
             "http://www.jj20.com/bz/nxxz/nxmt/10488.html","http://www.jj20.com/bz/nxxz/nxmt/10460.html",
 
             "http://www.jj20.com/bz/nxxz/nxmt/7648.html","http://www.jj20.com/bz/nxxz/nxmt/10494.html","http://www.jj20.com/bz/nxxz/shxz/10473.html",
-            "http://www.jj20.com/bz/nxxz/shxz/10554.html","http://www.jj20.com/bz/nxxz/nxmt/10498.html"
+            "http://www.jj20.com/bz/nxxz/shxz/10554.html","http://www.jj20.com/bz/nxxz/nxmt/10498.html","http://www.jj20.com/bz/nxxz/nxmt/10353.html",
+            "http://www.jj20.com/bz/nxxz/nxmt/10254.html","http://www.jj20.com/bz/nxxz/nxmt/10178.html","http://www.jj20.com/bz/nxxz/nxmt/10142.html",
+            "http://www.jj20.com/bz/nxxz/nxmt/10090.html","http://www.jj20.com/bz/nxxz/nxmt/10026.html"
 
     };
 }
