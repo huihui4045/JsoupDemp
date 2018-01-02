@@ -57,9 +57,9 @@ public class JJ20ImageTest {
         System.out.println("datas:\n"+datas.toString());
 
 
-        String url="C:\\Users\\gavin\\Desktop\\晨读\\今日头条\\%s\\%s";
+       // String url="C:\\Users\\gavin\\Desktop\\晨读\\今日头条\\%s\\%s";
 
-       // String url="C:\\Users\\molu_\\Desktop\\简书\\今日头条\\%s\\%s";
+       String url="C:\\Users\\molu_\\Desktop\\简书\\今日头条\\%s\\%s";
 
 
         File file = new File(String.format(url,
