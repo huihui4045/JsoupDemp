@@ -48,7 +48,7 @@ public class MMOnlyImageTest {
     public static void getDownLoadImage() {
 
 
-        for (int i = 0; i < MMOnlyData.DATA.length - 1; i++) {
+       for (int i = 0; i < MMOnlyData.DATA.length - 1; i++) {
 
             if (MMOnlyData.DATA[i].equals(url)) {
 
@@ -69,8 +69,8 @@ public class MMOnlyImageTest {
 
             //C:\Users\molu_\Desktop\简书\今日头条    C:\Users\gavin\Desktop\晨读\今日头条
 
-            //String url="C:\\Users\\molu_\\Desktop\\简书\\今日头条\\%s\\%s";
-            String url="C:\\Users\\gavin\\Desktop\\晨读\\今日头条\\%s\\%s";
+            String url="C:\\Users\\molu_\\Desktop\\简书\\今日头条\\%s\\%s";
+            //String url="C:\\Users\\gavin\\Desktop\\晨读\\今日头条\\%s\\%s";
 
 
             File file = new File(String.format(url,
