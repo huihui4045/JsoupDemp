@@ -61,7 +61,7 @@ public class MMOnlyData {
             "http://www.mmonly.cc/mmtp/bjnmn/61526.html","http://www.mmonly.cc/mmtp/bjnmn/61677.html","http://www.mmonly.cc/mmtp/xgmn/166778.html",
             "http://www.mmonly.cc/mmtp/xgmn/217990.html",
             "http://www.mmonly.cc/mmtp/nymn/173984.html","http://www.mmonly.cc/mmtp/ctmn/219037.html","http://www.mmonly.cc/mmtp/bjnmn/219038.html",
-            "http://www.mmonly.cc/mmtp/swmn/219039.html"
+            "http://www.mmonly.cc/mmtp/swmn/219039.html","http://www.mmonly.cc/mmtp/hgmn/217868.html","http://www.mmonly.cc/mmtp/hgmn/75146.html"
 
 
 
