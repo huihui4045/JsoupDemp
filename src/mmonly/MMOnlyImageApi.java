@@ -140,7 +140,13 @@ public class MMOnlyImageApi {
 
         List<MMImageBean> datas = new ArrayList<>(itemDivs.size());
 
+        int maxpage=0;
+
+
         for (Element itemDiv : itemDivs) {
+            maxpage++;
+
+            if (maxpage>9) break;
 
             Elements item_t = itemDiv.getElementsByClass("item_t");
 

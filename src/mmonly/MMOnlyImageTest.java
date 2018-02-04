@@ -45,10 +45,15 @@ public class MMOnlyImageTest {
         //System.out.println(document.body());
     }
 
+    private static boolean isLoad=true;
+
     public static void getDownLoadImage() {
 
 
        for (int i = 0; i < MMOnlyData.DATA.length - 1; i++) {
+
+
+           if (isLoad) break;
 
             if (MMOnlyData.DATA[i].equals(url)) {
 
@@ -83,9 +88,9 @@ public class MMOnlyImageTest {
             }
 
 
-            if (datas.size()>=15){
+            if (datas.size()>=12){
 
-                datas=datas.subList(0,15);
+                datas=datas.subList(0,12);
             }
 
             List<String> images = new ArrayList<>(datas.size());
@@ -118,6 +123,8 @@ public class MMOnlyImageTest {
         int  mPage = Integer.valueOf(contentpage).intValue();
 
         String  requsetUrl=url;
+
+        if (mPage>11) mPage=11;
 
         List<ImageItem> imageItems=new ArrayList<>(mPage);
         for (int i = 1; i <= mPage; i++) {
