@@ -61,6 +61,8 @@ public class DownLoadUtils {
                                 .referrer(Referrer).timeout(3000).get().toFile(fileName);
                     }else {
                         HttpHelper.connect(url).timeout(3000).get().toFile(fileName);
+
+                        //HttpHelper.connect(url).
                     }
 
 

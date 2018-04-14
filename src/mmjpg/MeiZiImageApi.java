@@ -8,6 +8,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import sun.rmi.runtime.Log;
 import utils.TimeUtil;
 
 import java.io.File;
@@ -141,7 +142,42 @@ public class MeiZiImageApi {
     }
 
 
+    private static String  getImage(String url){
+
+        String image="";
+
+        try {
+            Document mItemDocument = Jsoup.connect(url).get();
+
+            // System.out.println("document = [" + mItemDocument.toString() + "]");
+
+
+            Element page = mItemDocument.getElementById("page");
+            Elements aPageElements = page.select("a");
+            Element element = aPageElements.get(aPageElements.size()-2);
+            int num = Integer.valueOf(element.text());
+
+            Element content = mItemDocument.getElementById("content");
+
+            Elements aElements = content.select("a");
+
+            Elements img = aElements.get(0).getElementsByTag("img");
+
+            String imageUrl= img.attr("src");
+            String title=img.attr("alt");
+
+            image=imageUrl;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return image;
+    }
+
+
     public static void getDownLoadImages(String url){
+
+
 
         try {
             Document mItemDocument = Jsoup.connect(url).get();
@@ -166,14 +202,20 @@ public class MeiZiImageApi {
 
 
 
+
+
             List<ImageItem> imageItems=null;
+
+            System.out.println("原始image:"+imageUrl);
             if (num<=18){
 
                 imageItems=new ArrayList<>(num);
 
+
+
                 for (int i = 1; i <= num; i++) {
-                    String newstr = String.format("/%d.jpg",i);
-                    String s=  imageUrl.replace("1.jpg",newstr);
+
+                    String s= getImage(String.format("%s/%d",url,i));
                     ImageItem imageItem=new ImageItem(s,title);
 
                     imageItems.add(imageItem);
@@ -185,8 +227,7 @@ public class MeiZiImageApi {
                 imageItems=new ArrayList<>(18);
 
                 for (int i = 1; i <= 18; i++) {
-                    String newstr = String.format("/%d.jpg",i);
-                    String s=  imageUrl.replace("1.jpg",newstr);
+                    String s= getImage(String.format("%s/%d",url,i));
                     ImageItem imageItem=new ImageItem(s,title);
 
                     imageItems.add(imageItem);
@@ -198,9 +239,10 @@ public class MeiZiImageApi {
 
             //http://img.mmjpg.com/2017/1174/1/1.jpg
             //http://img.mmjpg.com/2017/1174/2.jpg
+            //C:\Users\Y\Desktop\今日头条
 
 
-            File file=new File(String.format("C:\\Users\\gavin\\Desktop\\晨读\\今日头条\\%s\\%s",
+            File file=new File(String.format("C:\\Users\\Y\\Desktop\\今日头条\\%s\\%s",
                     TimeUtil.getTimeShort(),imageItems.get(0).getTitle()));
 
 
@@ -218,9 +260,9 @@ public class MeiZiImageApi {
             }
 
 
-            //System.out.println("imageItems = [" + imageItems.toString() + "]");
+            System.out.println("imageItems = [" + imageItems.toString() + "]");//http://www.mmjpg.com/
 
-            DownLoadUtils.downLoadImageReferrer(images,file.getAbsolutePath(),"http://www.mmjpg.com");
+            DownLoadUtils.downLoadImageReferrer(images,file.getAbsolutePath(),"http://www.mmjpg.com/");
 
 
 

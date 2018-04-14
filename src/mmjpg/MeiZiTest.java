@@ -95,11 +95,24 @@ public class MeiZiTest {
     }
 
 
-    private static String URL="http://www.mmjpg.com/mm/289";
+    private static String URL="http://www.mmjpg.com/mm/1316";
 
+     //http://img.mmjpg.com/2018/1316/1ic1.jpg
+    //http://img.mmjpg.com/2018/1316/2isz.jpg
+   //http://img.mmjpg.com/2018/1316/3ixz.jpg
+   //http://img.mmjpg.com/2018/1316/4ibf.jpg
+  //http://img.mmjpg.com/2018/1316/5iqh.jpg
+    
+    //http://img.mmjpg.com/2018/1316/1ic/1.jpg
 
+    //http://img.mmjpg.com/2015/288/lic1.jpg
 
+    //http://img.mmjpg.com/2018/1316/1ic1.jpg
 
+        //http://img.mmjpg.com/small/2018/1316.jpg
+        //http://img.mmjpg.com/small/2018/1315.jpg
+
+    //http://img.mmjpg.com/2018/1316/1ic1.jpg
 
     public static void main(String[] args) throws IOException, InterruptedException {
 
