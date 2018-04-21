@@ -100,7 +100,8 @@ public class MMOnlyImageTest {
                 images.add(data.getSrc());
             }
 
-            DownLoadUtils.downLoadImageReferrer(images, file.getAbsolutePath(), "http://www.mmonly.cc");
+            DownLoadUtils.downLoadImageReferrer(images,
+                    file.getAbsolutePath(), "http://www.mmonly.cc");
 
         } catch (IOException e) {
             e.printStackTrace();
