@@ -16,8 +16,11 @@ public class RoSiImageApi {
     public static  String BASE_URL="http://mmp.mmxyz.net/index/";
 
 
-
-
+    /***
+     * 获取视频url
+     * @param url
+     * @return
+     */
     public static List<String>  getRoSiImages(String url){
 
         List<String>  datas=new ArrayList<>();
@@ -47,6 +50,11 @@ public class RoSiImageApi {
         return datas;
     }
 
+    /****
+     * 获取列表
+     * @param page
+     * @return
+     */
     public static List<RoSiBean> getRosiImages(int page){
 
         List<RoSiBean> list=new ArrayList<>();
@@ -94,7 +102,7 @@ public class RoSiImageApi {
         return list;
     }
 
-   static String rgex = "src=(.*?)&w=";
+   static String rgex = "src=(.*?)&h=";
 
     static String rgex_num = "\\[(.*?)P\\]";
 

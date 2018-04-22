@@ -11,6 +11,9 @@ public class ImageItem {
 
     private String nextPage;
 
+
+
+
     public String getNextPage() {
         return nextPage;
     }
