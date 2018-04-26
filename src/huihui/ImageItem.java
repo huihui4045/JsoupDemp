@@ -12,6 +12,7 @@ public class ImageItem {
     private String nextPage;
 
 
+    private String videoUrl;
 
 
     public String getNextPage() {
@@ -43,12 +44,23 @@ public class ImageItem {
         this.title = title;
     }
 
+    public String getVideoUrl() {
+        return videoUrl;
+    }
+
+    public void setVideoUrl(String videoUrl) {
+        this.videoUrl = videoUrl;
+    }
+
+
     @Override
     public String toString() {
         return "ImageItem{" +
                 "src='" + src + '\'' +
                 ", title='" + title + '\'' +
                 ", nextPage='" + nextPage + '\'' +
-                '}'+"\n";
+                ", videoUrl='" + videoUrl + '\'' +
+                '}'+
+                "\n";
     }
 }

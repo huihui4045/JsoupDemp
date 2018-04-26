@@ -44,7 +44,7 @@ public class LengMiVideoApi {
 
                     String videourl = getSubUtilSimple(element.toString(), file);
 
-                    System.out.println("file = [" + videourl + "]");
+                    System.out.println("videourl:"+ videourl.substring(2,videourl.length()-1));
 
 
                     return  videourl;
@@ -71,11 +71,16 @@ public class LengMiVideoApi {
 
         String url=String.format("%s%d",baseUrl,page);
 
+        System.out.println("url = [" + url + "]");
 
-        List<ImageItem>  datas=new ArrayList<>();
+
+      List<ImageItem>  datas=new ArrayList<>();
 
         try {
             Document document = Jsoup.connect(url).get();
+
+
+           // System.out.println("document = [" + document + "]");
 
 
             Elements elements = document.getElementsByClass("m-lp");
@@ -103,6 +108,8 @@ public class LengMiVideoApi {
 
                 imageItem.setNextPage(nextPage);
 
+                imageItem.setVideoUrl(getVideoUrl(nextPage));
+
 
                 datas.add(imageItem);
 
@@ -123,6 +130,8 @@ public class LengMiVideoApi {
     static String rgex = "src=(.*?)&h=";
 
     static String file="file:(.*?),";
+
+   // static String file="file:\"(.*?)\",";
 
     //static String rgex_num = "\\[(.*?)P\\]";
 
